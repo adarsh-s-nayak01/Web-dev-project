@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+    .div1{
+    background-color: black;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 10px;
+    margin-left:-20px;
+    margin-top:-8px
+}
+
+.box{
+    color: black;
+    background-color:white;
+    font-size: 1.1em;
+    padding-left: 1em;
+    border-radius: 10px;
+    width: 100%;
+    height: 5em;
+    padding-top: 0.1px;
+    padding-bottom: 3px;
+
+}
+body{
+     width: 99.5%;
+    height: 120vh;
+  background-color: #7c0000;
+background-image: linear-gradient(326deg,#1e1e1e 0%,#da2d2d   74%);
+}
+
+
+.div2{
+    margin-top: 3em;
+    margin-left: 25%;
+    margin-right:25%;
+    padding-left: 5em;
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+</body>
+<script type="text/babel">
+    class AllotmentResultPage extends React.Component{
+    constructor(props)
+    {
+        super(props);
+    }
+
+    render(){
+        return(
+            <div>
+                <div className="div1">
+                <center><h1 >ALLOTMENT RESULTS</h1></center>
+                <hr className="hr1"/>
+                </div>
+                
+                <div className="div2">
+                    <div className="box"><h2>CANDIDATE NAME : Amogh N Rao</h2></div><br/><br/>
+                    <div className="box"><h2>RANK OBTAINED : 1</h2></div><br/><br/>
+                    <div className="box"><h2>COLLEGE ALLOTED : PES RR Campus</h2></div><br/><br/>
+                    <div className="box"><h2>COURSE ALLOTED : CSE</h2></div><br/><br/>
+                </div>
+            </div>                                                                                             
+        )
+    }
+}ReactDOM.render(
+    <AllotmentResultPage/>,document.getElementById("root")
+)
+
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      
+    ..hide{
+    display: none;
+}
+body{
+     width: 99.5%;
+    height: 100vh;
+  background-color: #7c0000;
+background-image: linear-gradient(326deg,#1e1e1e 0%,#da2d2d   74%);
+}
+
+
+    .div1{
+    background-color:#1e1e1e;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 10px;
+    margin-left:-20px;
+    margin-top:-8px
+}
+
+.hide{
+    display: none;
+    color: white;
+}
+.show{
+    display:block;
+    color: white;
+}
+
+  </style>
+</head>
+<body>
+                    <div class="div1">
+                <center><h1 >OPTION ENTRY</h1></center>
+                <hr class="hr1"/>
+                </div>
+<main>
+        <article>
+        <div style="margin-left:45%;font-size:2em;margin-top:30px">List</div>
+        <div style="margin-left:42%;margin-top:30px">
+            
+            
+
+            <select style=" width:30%;font-size:1em; "name="food" id="food" onchange="changeVal()">
+                <option value="PES RR CSE">PES RR CSE</option>
+                <option value="PES RR ECE">PES RR ECE</option>
+                <option value="PES EC CSE">PES EC CSE</option>
+                <option value="PES EC ECE">PES EC ECE</option>
+            </select>
+        </div>
+        <div id="chosenFood" class="hide">
+            <h1 style = "text-align:center;">COLLEGE LIST</h1>
+            <div style="margin-left:30%;padding-left:15%;margin-right:30%;background-color:#1e1e1e;color:white" id="showFoodList"></div>
+        </div>
+    </article>
+</main>
+<script>
+  
+function changeVal()
+{
+    var f = document.getElementById("food");
+    var chosenFood = f.options[f.selectedIndex].value;
+    document.getElementById("showFoodList").innerHTML += '<p>' + chosenFood + '</p>';
+    document.getElementById("chosenFood").className="show";
+}
+</script>
+</body>
+</html>
+

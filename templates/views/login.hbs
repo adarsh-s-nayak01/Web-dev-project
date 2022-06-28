@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login / Sign Up Form</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <!-- <link rel="shortcut icon" href="/assets/favicon.ico"> -->
+    <style>
+        body {
+    --color-primary: #009579;
+    --color-primary-dark: #007f67;
+    --color-secondary: #373950;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 4px;
+
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background
+    background-size: cover;
+}
+
+.container {
+    width: 400px;
+    max-width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+}
+
+.container,
+.form__input,
+.form__button {
+    font: 500 1rem 'Quicksand', sans-serif;
+    background-color: #1e1e1e;
+}
+
+.form--hidden {
+    display: none;
+}
+
+.form > *:first-child {
+    margin-top: 0;
+}
+
+.form > *:last-child {
+    margin-bottom: 0;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message--success {
+    color: var(--color-success);
+}
+
+.form__message--error {
+    color: var(--color-error);
+}
+
+.form__input-group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form__input--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: #da2d2d;
+}
+
+.form__button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form__button:active {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top:10px;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+    body {
+      width: 90%;
+      height: 100vh;
+      /* background-color:#f26724; */
+      background-color: #7c0000;
+      background-image: linear-gradient(326deg, #1e1e1e 0%, #da2d2d 74%);
+      background-repeat: no-repeat;
+      color: #f9fcf5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      position: relative;
+      width: 240px;
+      right: 23%;
+      height: 100%;
+      background: #1e1e1e;
+
+    }
+
+    .sidebar header {
+      font-size: 28px;
+      color: white;
+      line-height: 70px;
+      text-align: center;
+      background: #1b1b1b;
+      user-select: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .sidebar a {
+      display: block;
+      height: 65px;
+      width: 100%;
+      color: white;
+      line-height: 65px;
+      padding-left: 30px;
+      box-sizing: border-box;
+      border-bottom: 1px solid black;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      border-left: 5px solid transparent;
+      font-family: 'Open Sans', sans-serif;
+      transition: all .5s ease;
+    }
+
+    a.active,
+    a:hover {
+      border-left: 5px solid #b93632;
+      color: #b93632;
+    }
+
+    .sidebar a i {
+      font-size: 23px;
+      margin-right: 16px;
+    }
+
+    .sidebar a span {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    #check {
+      display: none;
+    }
+
+    label #btn,
+    label #cancel {
+      position: absolute;
+      cursor: pointer;
+      color: white;
+      border-radius: 5px;
+      border: 1px solid #262626;
+      margin: 15px 30px;
+      font-size: 29px;
+      background: #262626;
+      height: 45px;
+      width: 45px;
+      text-align: center;
+      line-height: 45px;
+      transition: all .5s ease;
+    }
+
+    label #cancel {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #check:checked~.sidebar {
+      left: 0;
+    }
+
+    #check:checked~label #btn {
+      margin-left: 245px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #check:checked~label #cancel {
+      margin-left: 245px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media(max-width : 860px) {
+      .sidebar {
+        height: auto;
+        width: 70px;
+        left: 0;
+        margin: 100px 0;
+      }
+
+      header,
+      #btn,
+      #cancel {
+        display: none;
+      }
+
+      span {
+        position: absolute;
+        
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .sidebar a {
+        height: 60px;
+      }
+
+      .sidebar a i {
+        margin-left: -10px;
+      }
+
+      a:hover {
+        width: 200px;
+        background: inherit;
+      }
+
+      .sidebar a:hover span {
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+    .form__button a{
+        color: white;
+    }
+    span{
+      font-size: 15px;
+    }
+    </style>
+</head>
+<body>
+    </label>
+  <div class="sidebar">
+    <h2><a href="/"><i class="fas fa-home"></i>Home</a></h2>
+    <a href="/register" >
+
+      <span>Register</span>
+    </a>
+    <a href="/login">
+
+      <span>Login</span>
+    </a>
+    <a href="/StudentProfile">
+
+      <span>Profile</span>
+    </a>
+    <a href="/Test">
+
+      <span>Entrance Test</span>
+    </a>
+    <a href="/TestResults">
+
+      <span>Test Results</span>
+    </a>
+    <a href="/OptionEntryPage1">
+
+      <span>Option Entry</span>
+    </a>
+    <a href="/AllotmentResults">
+
+      <span>Allotment Results</span>
+    </a>
+    <a href="/about">
+
+      <span>About</span>
+    </a>
+  </div>
+    <div class="container">
+        <form class="form" id="login" action="/login" method="POST">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Email" name="email" >
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Password" name="password">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit"> Continue</button>
+            <p class="form__text">
+                <a href="#" class="form__link" >Forgot your password?</a>
+            </p>
+            <p class="form__text">
+                <a class="form__link" href="./register" id="linkCreateAccount">Don't have an account? Create account</a>
+            </p>
+        </form>
+        
+    </div>
+    <script >
+        function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
+
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add(`form__message--${type}`);
+}
+
+function setInputError(inputElement, message) {
+    inputElement.classList.add("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
+}
+
+function clearInputError(inputElement) {
+    inputElement.classList.remove("form__input--error");
+    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#login");
+    const createAccountForm = document.querySelector("#createAccount");
+
+    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        createAccountForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.remove("form--hidden");
+        createAccountForm.classList.add("form--hidden");
+    });
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        // Perform your AJAX/Fetch login
+
+        setFormMessage(loginForm, "error", "Invalid username/password combination");
+    });
+
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
+                setInputError(inputElement, "Username must be at least 10 characters in length");
+            }
+        });
+
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
+        });
+    });
+});
+    </script>
+</body>

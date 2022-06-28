@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome To Registration Form</title>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* body {
+          margin: 0;
+          background-color:  #f1f1f1;
+        } */
+
+    /* body css for whole page */
+    body {
+      width: 90%;
+      height: 100vh;
+      /* background-color:#f26724; */
+      background-color: #7c0000;
+      background-image: linear-gradient(326deg, #1e1e1e 0%, #da2d2d 74%);
+      background-repeat: no-repeat;
+      color: #f9fcf5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      width: 240px;
+
+      height: 100%;
+      background: #1e1e1e;
+
+    }
+
+    .sidebar header {
+      font-size: 28px;
+      color: white;
+      line-height: 70px;
+      text-align: center;
+      background: #1b1b1b;
+      user-select: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .sidebar a {
+      display: block;
+      height: 65px;
+      width: 100%;
+      color: white;
+      line-height: 65px;
+      padding-left: 30px;
+      box-sizing: border-box;
+      border-bottom: 1px solid black;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      border-left: 5px solid transparent;
+      font-family: 'Open Sans', sans-serif;
+      transition: all .5s ease;
+    }
+
+    a.active,
+    a:hover {
+      border-left: 5px solid #b93632;
+      color: #b93632;
+    }
+
+    .sidebar a i {
+      font-size: 23px;
+      margin-right: 16px;
+    }
+
+    .sidebar a span {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    #check {
+      display: none;
+    }
+
+    label #btn,
+    label #cancel {
+      position: absolute;
+      cursor: pointer;
+      color: white;
+      border-radius: 5px;
+      border: 1px solid #262626;
+      margin: 15px 30px;
+      font-size: 29px;
+      background: #262626;
+      height: 45px;
+      width: 45px;
+      text-align: center;
+      line-height: 45px;
+      transition: all .5s ease;
+    }
+
+    label #cancel {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #check:checked~.sidebar {
+      left: 0;
+    }
+
+    #check:checked~label #btn {
+      margin-left: 245px;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #check:checked~label #cancel {
+      margin-left: 245px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media(max-width : 860px) {
+      .sidebar {
+        height: auto;
+        width: 70px;
+        left: 0;
+        margin: 100px 0;
+      }
+
+      header,
+      #btn,
+      #cancel {
+        display: none;
+      }
+
+      span {
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .sidebar a {
+        height: 60px;
+      }
+
+      .sidebar a i {
+        margin-left: -10px;
+      }
+
+      a:hover {
+        width: 200px;
+        background: inherit;
+      }
+
+      .sidebar a:hover span {
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+    
+
+    #main table {
+      font-family: "Comic Sans MS", cursive;
+    }
+
+    /* css code for textbox */
+    #main .tb {
+      height: 28px;
+      width: 230px;
+      border: 1px solid #292929;
+      color: #fd7838;
+      font-weight: bold;
+      border-left: 5px solid #f7f7f7;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      margin-top:20px;
+    }
+
+    
+
+    #main .tb:focus {
+      height: 28px;
+      border: 1px solid #292929;
+      outline: none;
+      border-left: 5px solid #292929;
+    }
+
+    /* css code for button*/
+    #main .btn {
+      width: 150px;
+      height: 32px;
+      outline: none;
+      color: #f7f7f7;
+      font-weight: bold;
+      border: 0px solid #292929;
+      text-shadow: 0px 0.5px 0.5px #fff;
+      border-radius: 2px;
+      font-weight: 600;
+      color: #292929;
+      letter-spacing: 1px;
+      font-size: 14px;
+      background-color: #f1f1f1;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      transition: 1s;
+      margin-right:10px;
+      margin-left: 5px;
+      
+    }
+
+    #main .btn:hover {
+      background-color: #292929;
+      outline: none;
+      border-radius: 2px;
+      color: #f1f1f1;
+      border: 1px solid #f1f1f1;
+      -webkit-transition: 1s;
+      -moz-transition: 1s;
+      transition: 1s;
+    }
+    
+    
+    #main {
+      width: 600px;
+      height: auto;
+      overflow: hidden;
+      padding-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      padding-left: 10px;
+      margin-top: 100px;
+      border-radius: 5px;;
+      padding-top: 20px;
+      padding-left: 70px;
+      position:absolute;
+      left: 35%;
+      top:7%;
+      background-color: #1e1e1e;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    }
+
+    
+    /* for adding a background image  */
+    /* .bg-img {
+  The image used
+    background-image: url("sam.jpeg");
+
+  min-height: 380px;
+
+  Center and scale the image nicely
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}  */
+  </style>
+</head>
+
+<body>
+  </label>
+  <div class="sidebar">
+    <h2><a href="/"><i class="fas fa-home"></i>Home</a></h2>
+    <a href="/register">
+
+      <span>Register</span>
+    </a>
+    <a href="/login">
+
+      <span>Login</span>
+    </a>
+       <a href="/StudentProfile">
+
+      <span>Profile</span>
+    </a>
+    <a href="/Test">
+
+      <span>Entrance Test</span>
+    </a>
+    <a href="/TestResults">
+
+      <span>Test Results</span>
+    </a>
+    <a href="/OptionEntryPage1">
+
+      <span>Option Entry</span>
+    </a>
+    <a href="/AllotmentResults">
+
+      <span>Allotment Results</span>
+    </a>
+    <a href="/about">
+
+      <span>About</span>
+    </a>
+    </div>
+  <!-- Main div code -->
+  <div id="main" class="bg-img">
+    <div class="h-tag">
+      {{!-- mentioned from vdo --}}
+      <h2>Create Your Account</h2>
+    </div>
+    <form action="/register" method="POST">
+      <!-- create account div -->
+      <div class="login">
+        <table cellspacing="2" align="center" cellpadding="8" border="0">
+
+          <tr>
+            <td align="right">Enter Name :</td>
+            <td><input type="text" placeholder="Enter user here" id="t1" class="tb" name="name" /></td>
+          </tr>
+
+          <tr>
+            <td align="right">Enter Email ID :</td>
+            <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" name="email" /></td>
+          </tr>
+
+          <tr>
+            <td align="right">Enter Username :</td>
+            <td><input type="text" placeholder="Enter Username here" id="t3" class="tb" name="username" /></td>
+          </tr>
+          <tr>
+            <td align="right">Enter Password :</td>
+            <td><input type="password" placeholder="Enter Password here" id="t4" class="tb" name="password" /></td>
+          </tr>
+          <tr>
+            <td align="right">Confirm Password :</td>
+            <td><input type="password" placeholder="Enter Password again" id="t5" class="tb" name="confirmpassword" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+
+              <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+              <input type="submit" value="Create Account" class="btn" onclick="registration()" />
+            </td>
+            {{!-- give value as register --}}
+          </tr>
+        </table>
+      </div>
+      <!-- create account box ending here.. -->
+    </form>
+  </div>
+
+  <!-- Main div ending here... -->
+  <script>
+    function registration() {
+
+      var name = document.getElementById("t1").value;
+      var email = document.getElementById("t2").value;
+      var uname = document.getElementById("t3").value;
+      var pwd = document.getElementById("t4").value;
+      var cpwd = document.getElementById("t5").value;
+
+      //email id expression code
+      var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+      var letters = /^[A-Za-z]+$/;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    }
+    function clearFunc() {
+      document.getElementById("t1").value = "";
+      document.getElementById("t2").value = "";
+      document.getElementById("t3").value = "";
+      document.getElementById("t4").value = "";
+      document.getElementById("t5").value = "";
+    }
+
+  </script>
+</body>
+
+</html>

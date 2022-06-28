@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        
+        
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            .question{
+    font-size: 25px;
+    font-weight: 300;
+    background-color: white;
+  
+    /* box-shadow: 1px 1px 1px 1px grey; */
+    padding: 5%;
+    border-bottom:3px solid lightgray;
+    border-radius: 10px;
+    margin-bottom:20px;
+    }
+    
+    .option-list{
+        padding: 20px 0px;
+        display: block;   
+    }
+    .option-list .option{
+        background: aliceblue;
+        border: 1px solid #84c5fe;
+        border-radius: 5px;
+        padding: 8px 15px;
+        font-size: 17px;
+        margin-bottom: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+}
+.option-list .option:hover{
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+}
+.questions-list{
+    /* display: inline-block; */
+     background-color:#1e1e1e ; 
+     margin:auto;
+    padding: 6%;
+    border-radius: 3%;
+    border-left: 3px solid lightgray;
+    border-top: 3px solid lightgray;
+    width:60%;
+    box-shadow: 5px 10px lightgray;
+    margin-top: 5%;
+   
+    /*margin-right:20%;*/
+}
+
+
+.test-title{
+    display: flex;
+    flex-direction: left;
+    border-radius: 5px;
+    position:sticky;
+    top:0;
+    margin:0;
+    width:100%;
+    text-align: center;
+    background-color: #1e1e1e;
+    padding-top: 15px;
+    height: 100%;
+    margin-top: -20px;
+    color: white;
+    font-size: 30px;
+    height: 2em;
+}
+#btn{
+    position: relative;
+    left: 45%;
+    top: 50%;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0.46em 1.6em;
+    border: 0.1em solid #000000;
+    margin: 5em 0.2em 5em 0;
+    border-radius: 0.12em;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    background-color:#FFFFFF;
+    text-align:center;
+    transition: all 0.15s;
+}
+#btn:hover{
+    text-shadow: 0 0 2em rgba(255,255,255,1);
+    color: #004085;
+    background-color: #cce5ff;
+}
+
+header span{
+    margin-right: 29%;
+    
+    height: 50%;
+}
+ 
+body{
+    width: 100%;
+    
+     background-color: #7c0000;
+    background-image: linear-gradient(326deg,#1e1e1e 0%,#da2d2d   74%);
+}
+label{
+    display: block;
+    padding: 20px;
+    
+}
+input[type="radio"]{
+    margin-right:10px;
+}
+ 
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+    
+        class Question extends React.Component{
+    render(){
+        return(
+            
+            <div className="question">{this.props.q}
+                <div className="option-list">
+                    <label><input type="radio"  name={this.props.q}/>{this.props.op1}</label>
+                    <label><input type="radio" name={this.props.q} />{this.props.op2}</label> 
+                    <label><input type="radio" name={this.props.q} />{this.props.op3} </label> 
+                   <label><input type="radio" name={this.props.q}/>{this.props.op4} </label>    
+                </div>
+            </div>
+        )
+    }
+}
+class Questions extends React.Component{
+        render(){
+            return(
+                <div className="questions-list">
+                <Question q="Most humans can hear the same range of frequencies. What is the term used for this range?" op1="Aural range" op2="
+Detectable range" op3="Audible range" op4="Perceptible range"/>
+                <Question q="When a pair of particles is generated or interacts in certain ways, they are said to be entangled. What does this mean?" op1="Measurements made on these particles are unpredictable." op2="
+Detectable range" op3="Audible range" op4="Perceptible range"/>
+                <Question q="What does the word quantum mean?" op1="Quantum is Latin for how much,what amount" op2="
+Quantum is the neighborhood in Copenhagen where the Nils-Bohr-Institue is located."
+ op3="Quan-Tum is the province in China where the idea of duality (yin-yang) originated"
+ op4="
+ A quantum of solace is what you need to think about this kind of physics."/>
+                <Question q="Which is the name given to one of the fundamental principles of quantum physics?" op1="Biparticle Policy" op2="
+Twin Particle Constellation" op3="
+Wave Particle Duality" op4="
+The Mixed Double of Quantum Mechanics"/>
+                
+                </div>
+            )
+        }
+           
+        
+    }
+
+    function CountDownTimer({hoursMinSecs}) {
+   
+    const { hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
+    const [[hrs, mins, secs], setTime] = React.useState([hours, minutes, seconds]);
+    
+
+    const tick = () => {
+   
+        if (hrs === 0 && mins === 0 && secs === 0) 
+            reset()
+        else if (mins === 0 && secs === 0) {
+            setTime([hrs - 1, 59, 59]);
+        } else if (secs === 0) {
+            setTime([hrs, mins - 1, 59]);
+        } else {
+            setTime([hrs, mins, secs - 1]);
+        }
+    };
+
+
+    const reset = () => setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
+
+    
+    React.useEffect(() => {
+        const timerId = setInterval(() => tick(), 1000);
+        return () => clearInterval(timerId);
+    });
+    
+    
+    return (
+        
+            <p>Time Remaining: {`${hrs.toString().padStart(2, '0')}:${mins
+            .toString()
+            .padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</p> 
+        
+    );
+}
+class Title extends React.Component{
+    render(){
+        const hoursMinSecs = {hours:1, minutes: 0, seconds: 0}
+        var style = {
+            marginRight: "25%"
+        }
+        return(
+            <header className="test-title">
+                <span style={style}>Name: Amogh</span>
+                <span  style={style}>ENTRANCE TEST</span>
+                <CountDownTimer hoursMinSecs={hoursMinSecs}/>
+            </header>
+        )
+    }
+}
+class Test extends React.Component{
+    render(){
+        return(
+            <div>
+                <Title />
+                {/* <img src={profile} /> */}
+                <div className="test">
+                    <Questions />
+                    
+                    
+                </div>
+                 
+                        
+                        
+                 
+                <button id="btn" value="Submit">Submit</button>
+            </div>
+        )
+    }
+}
+ReactDOM.render(<Test/>, document.getElementById("root"))
+    </script>
+</html>
